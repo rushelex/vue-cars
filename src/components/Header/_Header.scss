@@ -1,0 +1,32 @@
+@import "~@/scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: map-get($header-height, "default");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-bottom: 1px solid $border-color;
+  user-select: none;
+
+  &__title{
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 100%;
+  }
+}
+
+@include media('small') {
+  .header {
+    height: map-get($header-height, 'small');
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+}

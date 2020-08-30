@@ -1,0 +1,27 @@
+@import "~@/scss";
+
+.main {
+  width: 100%;
+  max-width: calc(#{map-get($breakpoints, "large")} + 30px);
+  margin: 0 auto;
+  padding: 0 15px;
+
+  &__searcher {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+@include media("small") {
+  .main {
+    &__searcher {
+      width: 130px;
+    }
+  }
+}

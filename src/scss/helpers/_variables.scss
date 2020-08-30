@@ -1,0 +1,19 @@
+// SIZES
+$mobile-offset: 15px;
+$header-height: (
+        'default': 60px,
+        'small': 54px,
+);
+$border-radius: 5px;
+
+// COLORS
+$accent-color: #46bd87;
+$border-color: #e0e0e0;
+
+// OTHER
+$border: 1px solid $border-color;
+$breakpoints: (
+        'small':  ( 812px ),
+        'medium': ( 992px ),
+        'large':  ( 1200px )
+) !default;

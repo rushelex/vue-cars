@@ -1,0 +1,97 @@
+@import "~@/scss/index.scss";
+
+.search {
+  position: fixed;
+  top: calc(35% - #{map-get($header-height, "default")});
+  left: 50%;
+  z-index: 11;
+  width: 100%;
+  max-width: 600px;
+  height: 60px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%);
+  transition: 0.4s;
+
+  &__input {
+    @include placeholder() {
+      user-select: none;
+    }
+    width: 100%;
+    height: 100%;
+    padding: 10px 70px 10px 30px;
+    outline: none;
+    background-color: #ffffff;
+    border: $border;
+    border-radius: $border-radius;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 100%;
+    transition: 0.2s;
+
+    &:hover {
+      border-color: $accent-color;
+    }
+
+    &:focus,
+    &:active {
+      border-color: $accent-color;
+
+      ~ .search__icon {
+        color: $accent-color;
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: calc(50% + 2px);
+    right: 30px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.2s;
+    color: rgba(0, 0, 0, 0.5);
+    user-select: none;
+
+    &--close {
+      pointer-events: auto;
+      cursor: pointer;
+    }
+  }
+
+  &.focused {
+    top: calc(#{map-get($header-height, "default")} + calc(25vh / 2));
+    transform: translate(-50%, -50%);
+  }
+}
+
+@include media('small') {
+  .search {
+    left: 50%;
+    width: calc(100% - #{$mobile-offset * 2});
+    height: 45px;
+    transform: translate(-50%, 0);
+    transition: top 0.5s, all 0.2s;
+
+    &__input {
+      width: 100%;
+      height: 100%;
+      font-size: 20px;
+    }
+
+    &__icon {
+      right: $mobile-offset;
+    }
+
+    &.focused {
+      top: #{map-get($header-height, "small") - 1};
+      left: -1px;
+      right: -1px;
+      width: calc(100% + 2px);
+      max-width: calc(100% + 2px);
+      transform: none;
+      box-shadow: none;
+
+      .search__input { border-radius: 0; }
+    }
+  }
+}

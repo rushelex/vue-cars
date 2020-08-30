@@ -1,0 +1,21 @@
+@import "~@/scss";
+
+.cars-list {
+  width: 100%;
+  margin-top: 25vh;
+  margin-bottom: 50px;
+  border-radius: $border-radius;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-auto-columns: minmax(200px, 1fr);
+  grid-auto-rows: minmax(300px, 1fr);
+  grid-gap: 15px;
+}
+
+@include media("small") {
+  .cars-list {
+    margin-top: 10vh;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(200px, 1fr);
+  }
+}
